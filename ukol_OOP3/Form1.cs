@@ -19,13 +19,19 @@ namespace ukol_OOP3
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
                 auto = new Auto(textBox1.Text, Double.Parse(textBox2.Text));
                 MessageBox.Show("Byla vytvořena tvoje vysněná kára!", "Úspěšně vytvořeno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 button1.Enabled = false;
                 button2.Enabled = true;
                 button3.Enabled = true;
                 button4.Enabled = true;
+            }
+            catch
+            {
+                MessageBox.Show("Nezadal jsi žádnou nebo špatnou hodnotu, zkus to ještě jednou!", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -42,7 +48,7 @@ namespace ukol_OOP3
             try
             {
                 auto.Zastav(Double.Parse(textBox4.Text));
-                MessageBox.Show("Auto se zastavilo a ujelo " + auto.VratUjeteKm(),"Auto stojí", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Auto se zastavilo a ujelo " + auto.VratUjeteKm() + "km","Auto stojí", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
